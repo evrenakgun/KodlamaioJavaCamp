@@ -72,14 +72,6 @@ public class LanguageManager implements LanguageService {
 		Language language = new Language();
 		language.setName(createLanguageRequest.getName());
 		
-		if (isThere(language)) {
-			throw new Exception("Language name already exist.");
-		}
-		
-		if (isEmpty(language)) {
-			throw new Exception("Language name is empty or not valid.");
-		}
-		
 		languageRepository.save(language);
 	}
 
@@ -87,14 +79,6 @@ public class LanguageManager implements LanguageService {
 	public void update(int id, UpdateLanguageRequest updateLanguageRequest) throws Exception {
 		Language language = languageRepository.findById(id).get();
 		language.setName(updateLanguageRequest.getName());
-		
-		if (isThere(language)) {
-			throw new Exception("Language name already exist.");
-		}
-		
-		if (isEmpty(language)) {
-			throw new Exception("Language name is empty or not valid.");
-		}
 		
 		languageRepository.save(language);
 	}
